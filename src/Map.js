@@ -11,21 +11,21 @@ class Map extends Component {
   componentDidMount() {
     let map = new google.maps.Map(document.getElementById('map'), {
       
-      center: {lat: 41.0082, lng: 28.9784},
+      center: {lat: 40.588971, lng: -79.818435},
       zoom: 13,
       mapTypeControl: false
     });
 
-    navigator.geolocation.getCurrentPosition((position) => {
+    // navigator.geolocation.getCurrentPosition((position) => {
 
-      let pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      }
+    //   let pos = {
+    //     lat: position.coords.latitude,
+    //     lng: position.coords.longitude
+    //   }
 
-      map.setCenter(pos)
+    //   map.setCenter(pos)
 
-    })
+    // })
 
     this.onMapCreate(map)
 
@@ -37,9 +37,9 @@ class Map extends Component {
     return (
       <div id="map-content">
         <div id="map"></div>
-        <Marker 
-        map={ map }
-        />
+          <Marker 
+            map={ map }
+          />
       </div>
     );
   }

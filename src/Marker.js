@@ -18,14 +18,14 @@ class Marker extends Component {
   }
 
   createMarker = (trail) => {
-      const { map } = this.props
-      let marker = new window.google.maps.Marker({
-        position: { lat: trail.latitude, lng: trail.longitude },
-        map: map,
-        title: trail.name
-      })
+    const { map } = this.props
+     let marker = new window.google.maps.Marker({
+       position: { lat: trail.latitude, lng: trail.longitude },
+       map: map,
+       title: trail.name
+    })
       
-      return marker
+    return marker
 
     }
 
@@ -39,10 +39,10 @@ class Marker extends Component {
         {trails.map(trail => (
           marker = this.createMarker(trail),
           <InfoWindow
-          key = { trail.id }
-          map = { this.props }
-          trail = { trail }
-          marker = {marker}
+            key = { trail.id }
+            map = { this.props }
+            trail = { trail }
+            marker = {marker}
           />
         ))}
       </div>
