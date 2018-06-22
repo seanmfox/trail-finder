@@ -16,8 +16,6 @@ class Map extends Component {
       mapTypeControl: false
     });
 
-    console.log(map)
-
     navigator.geolocation.getCurrentPosition((position) => {
 
       let pos = {
