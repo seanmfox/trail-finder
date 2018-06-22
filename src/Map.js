@@ -12,7 +12,7 @@ class Map extends Component {
     let map = new google.maps.Map(document.getElementById('map'), {
       
       center: {lat: 40.588971, lng: -79.818435},
-      zoom: 13,
+      zoom: 10,
       mapTypeControl: false
     });
 
