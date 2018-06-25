@@ -8,6 +8,14 @@ class Map extends Component {
     this.props.createMap(map)
   }
 
+  onNewTrailsMarkersUpdate = (trailsMarkers) => {
+    this.props.onTrailsMarkersUpdate(trailsMarkers)
+  }
+
+  onSingleInfoWindowUpdate = (marker, trail, map) => {
+    this.props.onInfoWindowUpdate(marker, trail, map)
+  }
+
   componentDidMount() {
     let map = new google.maps.Map(document.getElementById('map'), {
       
@@ -32,15 +40,19 @@ class Map extends Component {
   }
 
   render() {
-    const { map } = this.props
+    const { map, trailsMarkers, query } = this.props
+    console.log('Checking what renders map')
 
     return (
-      <div id="map-content">
-        <div id="map"></div>
+         <div id="map">          
           <Marker 
             map={ map }
+            trailsMarkers = { trailsMarkers }
+            query = {query}
+            onCombinedTrailsMarkersUpdate = {(trailsMarkers) => { this.onNewTrailsMarkersUpdate(trailsMarkers) }}
+            onMarkerInfoWindowUpdate = {(marker, trail, map) => { this.onSingleInfoWindowUpdate(marker, trail, map)}}
           />
-      </div>
+        </div>
     );
   }
 }

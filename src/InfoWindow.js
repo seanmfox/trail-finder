@@ -5,20 +5,20 @@ class InfoWindow extends Component {
   createInfoWindow = (marker, trail, map) => {
     let infoWindow = new window.google.maps.InfoWindow()
 
-    marker.addListener('click', () => {
-      populateInfoWindow(marker, infoWindow)
+    marker.addListener('click', (e) => {
+      this.populateInfoWindow(marker, infoWindow, trail, map)
     })
 
-    let populateInfoWindow = (marker, window) => {
-      window.marker = marker
-      window.setContent(`<div>${trail.name}</div>`)
-      window.open(map, marker)
-      window.addListener('closeclick', () => {
-        window.marker = null
-      })
-    }
   }
 
+  populateInfoWindow = (marker, window, trail, map) => {
+    window.marker = marker
+    window.setContent(`<div>${trail.name}</div>`)
+    window.open(map, marker)
+    window.addListener('closeclick', () => {
+      window.marker = null
+    })
+  }
 
   render() {
 
