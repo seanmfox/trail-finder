@@ -19,7 +19,7 @@ class Map extends Component {
   render() {
     return (
       <div className="map-container">
-         <div id="map" role="application" aria-label="Trail locations"></div>
+         <div id="map" role="application" aria-label="Trail locations" tabIndex="0"></div>
       </div>
     );
   }
