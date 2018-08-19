@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { getLocation } from './helpers'
 const google = window.google
 
 class Map extends Component {
 
-  componentDidMount() {
+  async componentDidMount() {
+    const userLocation = await getLocation()
+
     let map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 40.588971, lng: -79.818435},
+      center: {lat: userLocation.coords.latitude, lng: userLocation.coords.longitude},
       zoom: 10,
       mapTypeControl: false
     });
