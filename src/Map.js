@@ -12,10 +12,6 @@ class Map extends Component {
       zoom: 10,
       mapTypeControl: false
     });
-    this.onMapCreate(map)
-  }
-
-  onMapCreate = (map) => {
     this.props.createMap(map)
   }
 

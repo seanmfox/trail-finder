@@ -5,6 +5,7 @@ import Map from './Map';
 import Menu from './Menu';
 import Footer from './Footer'
 import { getLocation, populateInfoWindow, updateMapMarkers } from './helpers'
+import { getTrails } from './api'
 
 class App extends Component {
 
@@ -23,14 +24,10 @@ class App extends Component {
     this.getData(userLocation.coords.latitude, userLocation.coords.longitude)
   }
 
-  getData = (latCoords, lonCoords) => {
-    fetch(`https://www.trailrunproject.com/data/get-trails?sort=quality&maxResults=25&lat=${latCoords}&lon=${lonCoords}&key=${process.env.REACT_APP_DATA_API_KEY}`)
-    .then(response => 
-      response.json()
-    ).then(data => 
-      this.combineData(data.trails)
-    ).then(newData => this.setState({ trailAndMarkerData: newData })
-    ).catch(error => {console.log('Unable to load Trail Run Project API')})    
+  getData = async (latCoords, lonCoords) => {
+    const res = await getTrails(latCoords, lonCoords)
+    const combinedData = this.combineData(res.trails)
+    this.setState({ trailAndMarkerData: combinedData})
   }
 
   //Creates one object containing both the trail data and the corresponding marker.
