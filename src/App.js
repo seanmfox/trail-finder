@@ -17,7 +17,8 @@ class App extends Component {
   };
 
   async componentDidUpdate() {
-    if (this.state.map && this.state.trailAndMarkerData.length < 1) {
+    const {map} = this.state
+    if (Object.keys(map).length > 0 && this.state.trailAndMarkerData.length < 1) {
       // Call to API for trail data.
       this.getData(this.state.coordinates.latitude, this.state.coordinates.longitude);
     }
