@@ -5,14 +5,14 @@ const google = window.google
 class Map extends Component {
 
   async componentDidMount() {
-    const userLocation = await getLocation()
-
-    let map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: userLocation.coords.latitude, lng: userLocation.coords.longitude},
+    let map = await new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.7128, lng: -74.0060},
       zoom: 10,
       mapTypeControl: false
     });
-    this.props.createMap(map)
+    const userLocation = await getLocation()
+    map.setCenter({lat: userLocation.coords.latitude, lng: userLocation.coords.longitude})
+    this.props.createMap(map, userLocation.coords)
   }
 
   render() {
