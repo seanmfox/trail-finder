@@ -90,7 +90,7 @@ class App extends Component {
   };
 
   render() {
-    const { map, query, trailAndMarkerData, long, lat } = this.state;
+    const { map, query, trailAndMarkerData } = this.state;
 
     return (
       <div className="App">
@@ -101,8 +101,6 @@ class App extends Component {
             createMap={(map, coords) => {
               this.createMap(map, coords);
             }}
-            long={long}
-            lat={lat}
           />
           <Menu
             map={map}

@@ -6,6 +6,10 @@ Find running trails near you, so you can log a few miles on the unbeaten path.
 
 This app is a component of the Udacity Front-End Nanodegree program.  Special attention in this project was given to building an app from scratch utilizing the React library as well as incorporating external APIs.
 
+## Live Site
+
+The site can be accessed at https://trail-finder.netlify.com/.
+
 ## How to run
 
 ### `npm start`
